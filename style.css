@@ -395,3 +395,55 @@ footer {
         font-size: 12px;
     }
 }
+
+
+/* VISITOR FEEDBACK */
+
+.feedback-section {
+    position: relative;
+    z-index: 2;
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    border: 1px solid #a7c8ee;
+    border-radius: 20px;
+    background: #ffffff10;
+    box-shadow: 0 0 25px #8bbfff;
+}
+
+.feedback-section h2 {
+    color: #dceaff;
+    margin-bottom: 15px;
+}
+
+.feedback-section p {
+    color: #bdcde4;
+    margin-bottom: 20px;
+}
+
+.feedback-section textarea {
+    display: block;
+    width: 100%;
+    min-height: 130px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #a7c8ee;
+    border-radius: 12px;
+    background: #071a38;
+    color: white;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.feedback-section textarea::placeholder {
+    color: #a9c5e9;
+}
+
+.feedback-section button {
+    width: 100%;
+}
+
+#feedbackStatus {
+    margin-top: 15px;
+    font-weight: bold;
+}
