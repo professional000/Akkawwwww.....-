@@ -1,248 +1,258 @@
 
+/* =================================
+   ROYAL DIGITAL HUB
+   BLUE & SILVER BIRTHDAY THEME
+================================= */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  color: white;
-  text-align: center;
-  overflow-x: hidden;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
 
-  background:
-    radial-gradient(circle at top, #214b82, transparent 55%),
-    linear-gradient(135deg, #06152d, #102d53, #030b1b);
+    background:
+        radial-gradient(circle at top, #214b82, transparent 55%),
+        linear-gradient(135deg, #06152d, #102d53, #030b1b);
 }
 
+/* HEADER */
+
 header {
-  padding: 25px 10px;
-  letter-spacing: 3px;
-  color: #d8e8ff;
+    position: relative;
+    z-index: 2;
+    padding: 25px 10px;
+    letter-spacing: 3px;
+    color: #d8e8ff;
+}
+
+/* MAIN CONTENT */
+
+main {
+    position: relative;
+    z-index: 2;
 }
 
 .welcome {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 20px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
 }
 
 .crown {
-  font-size: 50px;
-  margin-bottom: 15px;
+    font-size: 50px;
+    margin-bottom: 15px;
+    animation: float 2s infinite ease-in-out;
 }
 
 h1 {
-  color: #e2edff;
-  font-size: clamp(28px, 7vw, 48px);
-  text-shadow: 0 0 20px #8dbfff;
+    color: #e2edff;
+    font-size: clamp(28px, 7vw, 48px);
+    text-shadow: 0 0 20px #8dbfff;
 }
 
 .welcome p {
-  margin: 15px 0;
-  color: #bdcde4;
+    margin: 15px 0;
+    color: #bdcde4;
 }
 
+/* GIFT BOX */
+
 .gift-container {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 60px auto 30px;
-  cursor: pointer;
-  animation: float 2s infinite ease-in-out;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 60px auto 30px;
+    cursor: pointer;
+    animation: float 2s infinite ease-in-out;
 }
 
 .gift-box {
-  position: absolute;
-  bottom: 0;
-  width: 150px;
-  height: 110px;
-  background: linear-gradient(135deg, #b8d9ff, #527eae);
-  border: 2px solid white;
-  border-radius: 8px;
-  box-shadow: 0 0 30px #8bbfff;
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 110px;
+
+    background: linear-gradient(
+        135deg,
+        #b8d9ff,
+        #527eae
+    );
+
+    border: 2px solid white;
+    border-radius: 8px;
+    box-shadow: 0 0 30px #8bbfff;
 }
 
 .ribbon {
-  position: absolute;
-  left: 58px;
-  height: 100%;
-  width: 30px;
-  background: linear-gradient(90deg, #dceaff, #7898c1);
+    position: absolute;
+    left: 58px;
+    height: 100%;
+    width: 30px;
+
+    background: linear-gradient(
+        90deg,
+        #dceaff,
+        #7898c1
+    );
 }
 
 .gift-lid {
-  position: absolute;
-  top: 0;
-  left: -8px;
-  width: 166px;
-  height: 38px;
-  background: linear-gradient(135deg, #f0f7ff, #779dc9);
-  border-radius: 8px;
-  z-index: 2;
-  transition: 0.8s;
+    position: absolute;
+    top: 0;
+    left: -8px;
+    width: 166px;
+    height: 38px;
+
+    background: linear-gradient(
+        135deg,
+        #f0f7ff,
+        #779dc9
+    );
+
+    border-radius: 8px;
+    z-index: 2;
+    transition: 0.8s;
+}
+
+/* GIFT OPEN ANIMATION */
+
+.gift-container.open {
+    animation: none;
 }
 
 .gift-container.open .gift-lid {
-  transform: translateY(-100px) rotate(-20deg);
+    transform: translateY(-100px) rotate(-20deg);
 }
 
+/* BUTTONS */
+
 button {
-  padding: 14px 28px;
-  border: 1px solid white;
-  border-radius: 30px;
-  color: #092344;
-  background: linear-gradient(135deg, #ffffff, #9dc5f2);
-  font-weight: bold;
-  font-size: 15px;
-  cursor: pointer;
-  box-shadow: 0 0 20px #7ebaff;
-  transition: 0.3s;
+    padding: 14px 28px;
+    border: 1px solid white;
+    border-radius: 30px;
+
+    color: #092344;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #9dc5f2
+    );
+
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+
+    box-shadow: 0 0 20px #7ebaff;
+    transition: 0.3s;
 }
 
 button:hover {
-  transform: scale(1.07);
+    transform: scale(1.07);
+}
+
+button:active {
+    transform: scale(0.96);
 }
 
 .small {
-  font-size: 12px;
+    font-size: 12px;
 }
 
+/* BIRTHDAY SECTION */
+
 .birthday {
-  display: none;
-  min-height: 100vh;
-  padding: 60px 20px;
-  animation: fadeIn 2s;
+    display: none;
+    min-height: 100vh;
+    padding: 60px 20px;
+    animation: fadeIn 2s;
 }
 
 .birthday.show {
-  display: block;
+    display: block;
 }
 
 .silver-line {
-  width: 100px;
-  height: 3px;
-  margin: 0 auto 30px;
-  background: silver;
-  box-shadow: 0 0 15px white;
+    width: 100px;
+    height: 3px;
+    margin: 0 auto 30px;
+
+    background: silver;
+    box-shadow: 0 0 15px white;
 }
 
 .subtitle {
-  color: #b9d5f5;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
+    color: #b9d5f5;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
 }
 
 .birthday h2 {
-  font-size: 35px;
-  color: #d6e9ff;
-  margin: 15px;
+    font-size: 35px;
+    color: #d6e9ff;
+    margin: 15px;
 }
 
 .cake {
-  font-size: 90px;
-  margin: 30px;
-  animation: float 2s infinite;
+    font-size: 90px;
+    margin: 30px;
+    animation: float 2s infinite;
 }
 
 .message {
-  max-width: 550px;
-  margin: 25px auto;
-  color: #d2e2f8;
-  line-height: 1.9;
-  font-size: 17px;
+    max-width: 550px;
+    margin: 25px auto;
+    color: #d2e2f8;
+    line-height: 1.9;
+    font-size: 17px;
 }
 
-.countdown-box {
-  margin: 50px auto;
-  max-width: 400px;
-  padding: 25px;
-  border: 1px solid #a7c8ee;
-  border-radius: 18px;
-  background: #ffffff10;
+.birthday h3 {
+    color: #dceaff;
+    margin: 20px;
 }
 
-#countdown {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.time-unit {
-  background: #dceaff;
-  color: #0a2345;
-  padding: 12px;
-  border-radius: 10px;
-  min-width: 65px;
-}
-
-.time-unit strong {
-  display: block;
-  font-size: 22px;
-}
-
-.music-button {
-  position: fixed;
-  bottom: 20px;
-  right: 15px;
-  z-index: 10;
-  padding: 12px 18px;
-}
-
-#fireworks {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.stars {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(white 1px, transparent 1px);
-  background-size: 55px 55px;
-  opacity: 0.18;
-}
-
-footer {
-  padding: 25px;
-  color: #a9c5e9;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* COUNTDOWN */
 
 .countdown-box {
     display: none;
+
     margin: 30px auto;
     padding: 25px;
     max-width: 350px;
+
     border: 1px solid #dceaff;
     border-radius: 20px;
+
     background: #ffffff12;
     box-shadow: 0 0 25px #8bbfff;
 }
 
 .countdown-box.active {
     display: block;
+    animation: fadeIn 1s;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 #timer {
@@ -251,4 +261,137 @@ footer {
     font-weight: bold;
     color: #ffffff;
     text-shadow: 0 0 20px #8bbfff;
+}
+
+/* MUSIC BUTTON */
+
+.music-button {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    z-index: 10;
+
+    padding: 12px 18px;
+    font-size: 13px;
+}
+
+/* FIREWORKS */
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* BACKGROUND STARS */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px);
+
+    background-size: 55px 55px;
+    opacity: 0.18;
+}
+
+/* FOOTER */
+
+footer {
+    position: relative;
+    z-index: 2;
+    padding: 25px;
+    color: #a9c5e9;
+}
+
+/* ANIMATIONS */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 20px 8px;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .welcome {
+        min-height: 75vh;
+        padding: 15px;
+    }
+
+    .welcome h1 {
+        font-size: 29px;
+    }
+
+    .birthday {
+        padding: 45px 15px;
+    }
+
+    .birthday h1 {
+        font-size: 34px;
+    }
+
+    .birthday h2 {
+        font-size: 27px;
+    }
+
+    .cake {
+        font-size: 75px;
+    }
+
+    .message {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .countdown-box {
+        width: 95%;
+        padding: 20px;
+    }
+
+    #timer {
+        font-size: 55px;
+    }
+
+    .music-button {
+        bottom: 12px;
+        right: 10px;
+        padding: 10px 15px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
 }
