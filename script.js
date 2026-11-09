@@ -242,7 +242,7 @@ function startCountdown() {
                 <h2>🎂 HAPPY BIRTHDAY! 🎉</h2>
 
                 <p>
-                    Dear ${CONFIG.name},
+                    Dear AKKA ${CONFIG.name},
                     may your life be filled with
                     endless happiness, love and success.
                 </p>
