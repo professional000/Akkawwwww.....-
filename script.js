@@ -472,3 +472,76 @@ console.log(
 console.log(
     "🎁 Birthday Person: " + CONFIG.name
 );
+
+
+/* ==========================================
+   VISITOR FEEDBACK SYSTEM
+========================================== */
+
+const feedbackForm = document.getElementById("feedbackForm");
+
+const feedbackStatus = document.getElementById("feedbackStatus");
+
+const feedbackSubmit = document.getElementById("feedbackSubmit");
+
+if (feedbackForm) {
+
+    feedbackForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const feedback = document
+            .getElementById("visitorFeedback")
+            .value.trim();
+
+        if (feedback.length < 2) {
+            feedbackStatus.textContent =
+                "Please enter your feedback.";
+            return;
+        }
+
+        feedbackSubmit.disabled = true;
+        feedbackSubmit.textContent = "Sending...";
+
+        try {
+
+            const response = await fetch(
+                "https://formspree.io/f/xzepljrz",
+                {
+                    method: "POST",
+                    body: new FormData(feedbackForm),
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+            if (response.ok) {
+
+                feedbackStatus.textContent =
+                    "💙 Thank you! Your feedback was submitted successfully.";
+
+                feedbackForm.reset();
+
+            } else {
+
+                feedbackStatus.textContent =
+                    "Unable to send feedback. Please try again.";
+
+            }
+
+        } catch (error) {
+
+            feedbackStatus.textContent =
+                "Network error. Please check your internet.";
+
+        } finally {
+
+            feedbackSubmit.disabled = false;
+            feedbackSubmit.textContent = "📩 Submit Feedback";
+
+        }
+
+    });
+
+}
