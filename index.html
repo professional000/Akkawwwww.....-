@@ -2,109 +2,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#071a38">
-  <meta name="description" content="A Special Birthday Surprise">
+    <meta name="theme-color" content="#071a38">
+    <meta name="description" content="A Special Birthday Surprise">
 
-  <title>Happy Born-Day ❤️</title>
+    <title>Happy Birthday ❤️</title>
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="stars" id="stars"></div>
+    <!-- Background Stars -->
+    <div class="stars" id="stars"></div>
 
-  <header>
-    <h2>💙 A SPECIAL SURPRISE 💙</h2>
-  </header>
+    <!-- Header -->
+    <header>
+        <h2>💙 A SPECIAL SURPRISE 💙</h2>
+    </header>
 
-  <main>
+    <main>
 
-    <section class="welcome" id="welcome">
+        <!-- Welcome Section -->
+        <section class="welcome" id="welcome">
 
-      <div class="crown">👑</div>
+            <div class="crown">👑</div>
 
-      <h1>Something Special For You!</h1>
+            <h1>Something Special For You!</h1>
 
-      <p>
-        A beautiful surprise is waiting for you...
-      </p>
+            <p>A beautiful surprise is waiting for you...</p>
 
-      <div class="gift-container" id="gift">
+            <!-- Gift Box -->
+            <div class="gift-container" id="gift">
 
-        <div class="gift-lid"></div>
+                <div class="gift-lid"></div>
 
-        <div class="gift-box">
-          <div class="ribbon"></div>
-        </div>
+                <div class="gift-box">
+                    <div class="ribbon"></div>
+                </div>
 
-      </div>
+            </div>
 
-      <button id="openGift">
-        🎁 OPEN YOUR GIFT
-      </button>
+            <button id="openGift">
+                🎁 OPEN YOUR GIFT
+            </button>
 
-      <p class="small">
-        Tap the gift to reveal your surprise ❤️
-      </p>
+            <p class="small">
+                Tap the gift to reveal your surprise ❤️
+            </p>
 
-    </section>
-
-    <section class="birthday" id="birthday">
-
-      <div class="silver-line"></div>
-
-      <p class="subtitle">TODAY IS YOUR SPECIAL DAY</p>
-
-      <h1>Happy Birthday</h1>
-
-      <h2 id="personName">My Dear AKKA ❣️</h2>
-
-      <div class="cake">🎂</div>
-
-      <p class="message">
-        May your life shine brighter than the stars.
-        May every dream become reality.
-        Wishing you endless happiness, love and success!
-      </p>
-
-      <h3>✨ Stay Blessed Always ✨</h3>
-
-      <button id="celebrate">
-        🎆 Celebrate Your Day
-      </button>
-
-      <div class="countdown-box" id="countdownBox">
-    <h3>🎁 Your Surprise Begins In</h3>
-
-    <div id="countdown">
-        <span id="timer">10</span>
-    </div>
-      </div>
-
-    </section>
-
-  </main>
+        </section>
 
 
-  <audio id="birthdayMusic" loop preload="auto">
-    <source src="assets/birthday-song.mp3" type="audio/mpeg">
-</audio>
+        <!-- Birthday Section -->
+        <section class="birthday" id="birthday">
 
-<button id="musicButton" class="music-button">
-    🎵 Play Music
-</button>
+            <div class="silver-line"></div>
 
-  <canvas id="fireworks"></canvas>
+            <p class="subtitle">
+                TODAY IS YOUR SPECIAL DAY
+            </p>
 
-  <footer>
-    Made with 💙 and lots of love
-  </footer>
+            <h1>Happy Birthday</h1>
 
-  <script src="script.js"></script>
+            <h2 id="personName">
+                My Dear AKKA ❣️
+            </h2>
+
+            <div class="cake">🎂</div>
+
+            <p class="message">
+                May your life shine brighter than the stars.
+
+                May every dream become reality.
+
+                Wishing you endless happiness, love and success!
+            </p>
+
+            <h3>✨ Stay Blessed Always ✨</h3>
+
+            <!-- Celebrate Button -->
+            <button id="celebrate">
+                🎆 Celebrate Your Day
+            </button>
+
+            <!-- 10 Second Countdown -->
+            <div class="countdown-box" id="countdownBox">
+
+                <h3>🎁 Your Surprise Begins In</h3>
+
+                <div id="countdown">
+                    <span id="timer">10</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Background Music -->
+    <audio id="birthdayMusic" loop preload="auto">
+        <source
+            src="assets/birthday-song.mp3"
+            type="audio/mpeg">
+    </audio>
+
+
+    <!-- Music Button -->
+    <button id="musicButton" class="music-button">
+        🎵 Play Music
+    </button>
+
+
+    <!-- Fireworks Canvas -->
+    <canvas id="fireworks"></canvas>
+
+
+    <!-- Footer -->
+    <footer>
+        Made with 💙 and lots of love
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 </html>
