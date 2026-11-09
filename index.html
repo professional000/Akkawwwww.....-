@@ -23,39 +23,6 @@
         <h2>💙 A SPECIAL SURPRISE 💙</h2>
     </header>
 
-    
-<!-- VISITOR FEEDBACK SECTION -->
-
-<section class="feedback-section" id="feedback">
-
-    <h2>💌 Share Your Feedback</h2>
-
-    <p>
-        We would love to know your thoughts!
-    </p>
-
-    <form id="feedbackForm">
-
-        <textarea
-            id="visitorFeedback"
-            name="message"
-            placeholder="Write your feedback here..."
-            required
-            minlength="2"
-            maxlength="1000"
-        ></textarea>
-
-        <button type="submit" id="feedbackSubmit">
-            📩 Submit Feedback
-        </button>
-
-        <p id="feedbackStatus" aria-live="polite"></p>
-
-    </form>
-
-</section>
-    
-
     <main>
 
         <!-- Welcome Section -->
@@ -121,7 +88,7 @@
                 🎆 Celebrate Your Day
             </button>
 
-            <!-- 10 Second Countdown -->
+            <!-- Countdown -->
             <div class="countdown-box" id="countdownBox">
 
                 <h3>🎁 Your Surprise Begins In</h3>
@@ -134,14 +101,47 @@
 
         </section>
 
+
+        <!-- VISITOR FEEDBACK -->
+        <section class="feedback-section" id="feedback">
+
+            <h2>💌 Share Your Feedback</h2>
+
+            <p>
+                We would love to know your thoughts!
+            </p>
+
+            <form id="feedbackForm">
+
+                <textarea
+                    id="visitorFeedback"
+                    name="message"
+                    placeholder="Write your feedback here..."
+                    required
+                    minlength="2"
+                    maxlength="1000"
+                ></textarea>
+
+                <button type="submit" id="feedbackSubmit">
+                    📩 Submit Feedback
+                </button>
+
+                <p id="feedbackStatus" aria-live="polite"></p>
+
+            </form>
+
+        </section>
+
     </main>
 
 
     <!-- Background Music -->
     <audio id="birthdayMusic" loop preload="auto">
+
         <source
             src="assets/birthday-song.mp3"
             type="audio/mpeg">
+
     </audio>
 
 
@@ -158,6 +158,8 @@
     <!-- Footer -->
     <footer>
         Made with 💙 and lots of love
+        <br>
+        ROYAL DIGITAL HUB
     </footer>
 
 
