@@ -1,6 +1,7 @@
+
 /* ==========================================
    ROYAL DIGITAL HUB
-   PREMIUM BIRTHDAY SURPRISE WEBSITE
+   PREMIUM BIRTHDAY SURPRISE
 ========================================== */
 
 
@@ -22,32 +23,27 @@ const CONFIG = {
 ========================================== */
 
 const gift = document.getElementById("gift");
-
 const openGift = document.getElementById("openGift");
 
 const welcome = document.getElementById("welcome");
-
 const birthday = document.getElementById("birthday");
 
 const personName = document.getElementById("personName");
 
 const countdownBox = document.getElementById("countdownBox");
-
 const countdown = document.getElementById("countdown");
 
 const music = document.getElementById("birthdayMusic");
-
 const musicButton = document.getElementById("musicButton");
 
 const celebrateButton = document.getElementById("celebrate");
 
 const canvas = document.getElementById("fireworks");
-
 const ctx = canvas ? canvas.getContext("2d") : null;
 
 
 /* ==========================================
-   3. PERSONALIZED BIRTHDAY NAME
+   3. PERSONALIZED NAME
 ========================================== */
 
 if (personName) {
@@ -58,116 +54,14 @@ document.title = "Happy Birthday " + CONFIG.name;
 
 
 /* ==========================================
-   4. GIFT BOX OPENING
+   4. MUSIC SETUP
 ========================================== */
 
-let giftOpened = false;
-
-if (openGift) {
-    openGift.addEventListener("click", openSurprise);
+if (music) {
+    music.src = CONFIG.musicPath;
+    music.loop = true;
+    music.volume = 0.7;
 }
-
-if (gift) {
-    gift.addEventListener("click", openSurprise);
-}
-
-function openSurprise() {
-
-    if (giftOpened) return;
-
-    giftOpened = true;
-
-    // Gift animation
-    if (gift) {
-        gift.classList.add("open");
-    }
-
-    // Hide button
-    if (openGift) {
-        openGift.disabled = true;
-        openGift.textContent = "💙 OPENING YOUR SURPRISE...";
-    }
-
-    // Start background music
-    playMusic();
-
-    // Show birthday screen
-    setTimeout(() => {
-
-        if (welcome) {
-            welcome.style.display = "none";
-        }
-
-        if (birthday) {
-            birthday.classList.add("show");
-        }
-
-        // Start 10-second countdown
-        startCountdown();
-
-    }, 1000);
-
-}
-
-
-/* ==========================================
-   5. 10 SECOND COUNTDOWN
-========================================== */
-
-let countdownInterval = null;
-
-function startCountdown() {
-
-    if (!countdownBox || !countdown) return;
-
-    // Show countdown
-    countdownBox.classList.add("active");
-
-    let seconds = CONFIG.countdownSeconds;
-
-    countdown.innerHTML = `
-        <strong id="timer">${seconds}</strong>
-    `;
-
-    const timer = document.getElementById("timer");
-
-    countdownInterval = setInterval(() => {
-
-        seconds--;
-
-        if (timer) {
-            timer.textContent = seconds;
-        }
-
-        if (seconds <= 0) {
-
-            clearInterval(countdownInterval);
-
-            // Final birthday message
-            countdownBox.innerHTML = `
-                <h2>🎂 HAPPY BIRTHDAY! 🎉</h2>
-
-                <p>
-                    May your life be filled with
-                    endless happiness and love.
-                </p>
-
-                <h3>💙 Enjoy Your Special Day 💙</h3>
-            `;
-
-            // Fireworks celebration
-            launchFireworks();
-
-        }
-
-    }, 1000);
-
-}
-
-
-/* ==========================================
-   6. BACKGROUND MUSIC PLAY / PAUSE
-========================================== */
 
 async function playMusic() {
 
@@ -183,7 +77,7 @@ async function playMusic() {
 
     } catch (error) {
 
-        console.error("Music Error:", error);
+        console.error("Music playback failed:", error);
 
         if (musicButton) {
             musicButton.textContent = "🎵 Play Music";
@@ -192,7 +86,6 @@ async function playMusic() {
     }
 
 }
-
 
 if (musicButton) {
 
@@ -216,14 +109,17 @@ if (musicButton) {
 
 }
 
-
-/* ==========================================
-   7. MUSIC ERROR HANDLING
-========================================== */
-
 if (music) {
 
-    music.addEventListener("ended", () => {
+    music.addEventListener("play", () => {
+
+        if (musicButton) {
+            musicButton.textContent = "⏸ Pause Music";
+        }
+
+    });
+
+    music.addEventListener("pause", () => {
 
         if (musicButton) {
             musicButton.textContent = "🎵 Play Music";
@@ -234,7 +130,7 @@ if (music) {
     music.addEventListener("error", () => {
 
         console.error(
-            "Music file not found. Check assets/birthday-song.mp3"
+            "Music file unavailable. Check assets/birthday-song.mp3"
         );
 
         if (musicButton) {
@@ -247,7 +143,126 @@ if (music) {
 
 
 /* ==========================================
-   8. FIREWORKS CANVAS
+   5. GIFT BOX OPENING
+========================================== */
+
+let giftOpened = false;
+
+if (openGift) {
+    openGift.addEventListener("click", openSurprise);
+}
+
+if (gift) {
+    gift.addEventListener("click", openSurprise);
+}
+
+function openSurprise() {
+
+    if (giftOpened) return;
+
+    giftOpened = true;
+
+    // Open gift animation
+    if (gift) {
+        gift.classList.add("open");
+    }
+
+    // Disable button
+    if (openGift) {
+
+        openGift.disabled = true;
+
+        openGift.textContent = "💙 OPENING YOUR SURPRISE...";
+
+    }
+
+    // Start music
+    playMusic();
+
+    // Reveal birthday screen
+    setTimeout(() => {
+
+        if (welcome) {
+            welcome.style.display = "none";
+        }
+
+        if (birthday) {
+            birthday.classList.add("show");
+        }
+
+        // Start countdown only after gift opens
+        startCountdown();
+
+    }, 1000);
+
+}
+
+
+/* ==========================================
+   6. COUNTDOWN
+========================================== */
+
+let countdownInterval = null;
+
+function startCountdown() {
+
+    if (!countdownBox || !countdown) return;
+
+    if (countdownInterval) {
+        clearInterval(countdownInterval);
+    }
+
+    countdownBox.classList.add("active");
+
+    let seconds = CONFIG.countdownSeconds;
+
+    countdown.innerHTML = `
+        <strong id="timer">${seconds}</strong>
+    `;
+
+    const timer = document.getElementById("timer");
+
+    countdownInterval = setInterval(() => {
+
+        seconds--;
+
+        if (timer) {
+            timer.textContent = Math.max(seconds, 0);
+        }
+
+        if (seconds <= 0) {
+
+            clearInterval(countdownInterval);
+
+            countdownInterval = null;
+
+            // Final birthday message
+            countdownBox.innerHTML = `
+
+                <h2>🎂 HAPPY BIRTHDAY! 🎉</h2>
+
+                <p>
+                    Dear ${CONFIG.name},
+                    may your life be filled with
+                    endless happiness, love and success.
+                </p>
+
+                <h3>💙 Enjoy Your Special Day 💙</h3>
+
+            `;
+
+            // Fireworks celebration
+            launchFireworks();
+
+        }
+
+    }, 1000);
+
+}
+
+
+/* ==========================================
+   7. FIREWORKS CANVAS SETUP
 ========================================== */
 
 let particles = [];
@@ -264,7 +279,6 @@ function resizeCanvas() {
     );
 
     canvas.width = window.innerWidth * dpr;
-
     canvas.height = window.innerHeight * dpr;
 
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -277,7 +291,7 @@ window.addEventListener("resize", resizeCanvas);
 
 
 /* ==========================================
-   9. CREATE FIREWORK PARTICLES
+   8. CREATE FIREWORK PARTICLES
 ========================================== */
 
 function createFirework(x, y) {
@@ -287,7 +301,8 @@ function createFirework(x, y) {
         "#c0c0c0",
         "#a8d5ff",
         "#dceaff",
-        "#83baff"
+        "#83baff",
+        "#f5f5ff"
     ];
 
     for (let i = 0; i < 65; i++) {
@@ -299,15 +314,12 @@ function createFirework(x, y) {
         particles.push({
 
             x: x,
-
             y: y,
 
             vx: Math.cos(angle) * speed,
-
             vy: Math.sin(angle) * speed,
 
             life: 90,
-
             maxLife: 90,
 
             color: colors[
@@ -322,7 +334,7 @@ function createFirework(x, y) {
 
 
 /* ==========================================
-   10. FIREWORK ANIMATION
+   9. FIREWORK ANIMATION
 ========================================== */
 
 function animateFireworks() {
@@ -341,11 +353,9 @@ function animateFireworks() {
         const p = particles[i];
 
         p.x += p.vx;
-
         p.y += p.vy;
 
         p.vy += 0.035;
-
         p.vx *= 0.99;
 
         p.life--;
@@ -370,9 +380,7 @@ function animateFireworks() {
         ctx.fill();
 
         if (p.life <= 0) {
-
             particles.splice(i, 1);
-
         }
 
     }
@@ -400,7 +408,7 @@ function animateFireworks() {
 
 
 /* ==========================================
-   11. LAUNCH FIREWORKS
+   10. LAUNCH FIREWORKS
 ========================================== */
 
 function launchFireworks() {
@@ -435,7 +443,7 @@ function launchFireworks() {
 
 
 /* ==========================================
-   12. CELEBRATE BUTTON
+   11. CELEBRATE BUTTON
 ========================================== */
 
 if (celebrateButton) {
@@ -445,9 +453,7 @@ if (celebrateButton) {
         launchFireworks();
 
         if (music && music.paused) {
-
             playMusic();
-
         }
 
     });
@@ -456,11 +462,11 @@ if (celebrateButton) {
 
 
 /* ==========================================
-   13. CONSOLE SUCCESS MESSAGE
+   12. SUCCESS MESSAGE
 ========================================== */
 
 console.log(
-    "💙 Birthday Surprise Website Loaded Successfully!"
+    "💙 ROYAL DIGITAL HUB Birthday Website Loaded!"
 );
 
 console.log(
