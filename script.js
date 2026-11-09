@@ -9,7 +9,7 @@ const CONFIG = {
   birthday: "2026-11-09",
 
   // 24-hour format
-  birthdayTime: "12:00:00pm"
+  birthdayTime: "00:00:00"
 };
 
 
