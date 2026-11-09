@@ -77,24 +77,26 @@
         🎆 Celebrate Your Day
       </button>
 
-      <div class="countdown-box">
-        <h3>Birthday Countdown</h3>
-        <div id="countdown">
-          <span>Loading...</span>
-        </div>
+      <div class="countdown-box" id="countdownBox">
+    <h3>🎁 Your Surprise Begins In</h3>
+
+    <div id="countdown">
+        <span id="timer">10</span>
+    </div>
       </div>
 
     </section>
 
   </main>
 
-  <button id="musicButton" class="music-button">
-    🎵 Play Music
-  </button>
 
   <audio id="birthdayMusic" loop preload="auto">
     <source src="assets/birthday-song.mp3" type="audio/mpeg">
-  </audio>
+</audio>
+
+<button id="musicButton" class="music-button">
+    🎵 Play Music
+</button>
 
   <canvas id="fireworks"></canvas>
 
